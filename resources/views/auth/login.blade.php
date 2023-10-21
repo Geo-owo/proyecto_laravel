@@ -14,7 +14,8 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+<!----pwa assets--->
+@LaravelPWA
             <!-- Email Address -->
             <div>
                 <x-label for="email" :value="__('Email')" />

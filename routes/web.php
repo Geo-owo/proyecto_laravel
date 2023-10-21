@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstadoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/offline', function () {
+    return view('modules/laravelpwa/offline');
+});
+
 require __DIR__.'/auth.php';
+
+Route::get('/estados/getEstados', [EstadoController::class, 'getEstados']); 
+Route::resource('/estados', EstadoController::class); 
+Route::resource('/confirmados', ConfirmadosController::class); 
+
